@@ -16,10 +16,10 @@ public class Bai19SoDoiXung {
 
         //Check đối xứng
         boolean doiXung = checkDoiXung(n);
-        if (doiXung == true) {
-            System.out.println("Đây là số đối xứng:");
+        if (doiXung) {
+            System.out.println("Đây là số đối xứng");
         } else {
-            System.out.println("Đây không là số đối xứng:");
+            System.out.println("Đây không là số đối xứng");
         }
 
 
@@ -29,11 +29,18 @@ public class Bai19SoDoiXung {
 
         //check số nguyên tố
         boolean nguyenTo = checkNguyenTo(n);
-        if (nguyenTo == true) {
+        if (nguyenTo) {
             System.out.println("Đây là số nguyên tố");
         } else {
             System.out.println("Đây KO là số nguyên tố");
         }
+
+        // check min max
+        int min = getMin(n);
+        System.out.println("Min: " + min);
+
+        int max = getMax(n);
+        System.out.println("Max: " + max);
 
     }
 
@@ -45,12 +52,11 @@ public class Bai19SoDoiXung {
         String revert = "";
 
         for (int i = length - 1; i >= 0; i--) {
-            revert = revert + input.charAt(i);
-
+            //revert = revert + input.charAt(i);
+            revert = revert.concat(String.valueOf(input.charAt(i)));
         }
 
-        boolean doiXung = input.equals(revert);
-        return doiXung;
+        return input.equals(revert);
 
     }
 
@@ -69,7 +75,6 @@ public class Bai19SoDoiXung {
     }
 
     public static boolean checkNguyenTo(int n) {
-
         if (n < 2) {
             return false;
         } else {
@@ -80,7 +85,35 @@ public class Bai19SoDoiXung {
             }
         }
         return true;
-
     }
 
+    public static int getMin(int n) {
+        String tam = String.valueOf(n);
+        String c = String.valueOf(tam.charAt(0));
+        int min = Integer.parseInt(c);
+
+        for (int i = 1; i < tam.length(); i++) {
+            c = String.valueOf(tam.charAt(i));
+            int cInt = Integer.parseInt(c);
+            if (min > cInt) {
+                min = cInt;
+            }
+        }
+        return min;
+    }
+
+    public static int getMax(int n) {
+        String tam = String.valueOf(n);
+        String c = String.valueOf(tam.charAt(0));
+        int max = Integer.parseInt(c);
+
+        for (int i = 1; i < tam.length(); i++) {
+            c = String.valueOf(tam.charAt(i));
+            int cInt = Integer.parseInt(c);
+            if (max < cInt) {
+                max = cInt;
+            }
+        }
+        return max;
+    }
 }
