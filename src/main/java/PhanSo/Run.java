@@ -15,7 +15,7 @@ public class Run {
 
         InputOutputFraction frt = new InputOutputFraction(tuSo, mauSo);
         String export = frt.fractionExport();
-        System.out.println("Tử số / Mẫu số là: "+ export);
+        System.out.println("Tử số / Mẫu số là: " + export);
 
         float result = frt.fraction();
         System.out.println("Kết quả là: " + result);

@@ -11,16 +11,11 @@ public class CompactFraction {
         return fraction;
     }
 
-    public float findCompact(float a, float b)
-    {
-        while(a!=b)
-        {
-            if(a > b)
-            {
+    public float findCompact(float a, float b) {
+        while (a != b) {
+            if (a > b) {
                 a = a - b;
-            }
-            else
-            {
+            } else {
                 b = b - a;
             }
         }
@@ -33,8 +28,8 @@ public class CompactFraction {
         float b = this.fraction.getDenominator();
         float i = findCompact(a, b);
 
-        this.fraction.setNumerator(a/i);
-        this.fraction.setDenominator(b/i);
+        this.fraction.setNumerator(a / i);
+        this.fraction.setDenominator(b / i);
 
     }
 }
