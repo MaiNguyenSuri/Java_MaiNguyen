@@ -17,26 +17,6 @@ public class InputOutputFraction {
     public InputOutputFraction() {
     }
 
-    public static InputOutputFraction sumFraction(InputOutputFraction frt1, InputOutputFraction frt2) {
-        InputOutputFraction frt3 = new InputOutputFraction();
-
-        float tuso;
-        float mauso;
-        if (frt1.getDenominator() == frt2.getDenominator()) {
-            tuso = frt1.getNumerator() + frt2.getNumerator();
-            mauso = frt1.getDenominator();
-
-
-        } else {
-            tuso = (frt1.getNumerator() * frt2.getDenominator()) + (frt2.getNumerator() * frt1.getDenominator());
-            mauso = frt1.getDenominator() * frt2.getDenominator();
-        }
-
-        frt3.setNumerator(tuso);
-        frt3.setDenominator(mauso);
-
-        return frt3.compact();
-    }
 
     public float fraction() {
         return numerator / denominator;
@@ -47,6 +27,7 @@ public class InputOutputFraction {
         return export;
     }
 
+    // hàm in ra phân số
     public void print() {
         String export = fractionExport();
         System.out.println(export);
@@ -75,10 +56,43 @@ public class InputOutputFraction {
         return compact.getFraction();
     }
 
-    public InputOutputFraction sum(InputOutputFraction frtinput) {
-        InputOutputFraction frt3 = sumFraction(this, frtinput);
+    // tính tổng hai phân số
+    public InputOutputFraction sumFraction(InputOutputFraction frtInput) {
+        InputOutputFraction frt3 = new InputOutputFraction();
 
-        return frt3;
+        float rsNumerator;
+        float rsDenominator;
+        if (this.getDenominator() == frtInput.getDenominator()) {
+            rsNumerator = this.getNumerator() + frtInput.getNumerator();
+            rsDenominator = this.getDenominator();
+        } else {
+            rsNumerator = (this.getNumerator() * frtInput.getDenominator()) + (frtInput.getNumerator() * this.getDenominator());
+            rsDenominator = this.getDenominator() * frtInput.getDenominator();
+        }
+
+        frt3.setNumerator(rsNumerator);
+        frt3.setDenominator(rsDenominator);
+
+        return frt3.compact();
+    }
+// hàm trừ hai phân số
+    public InputOutputFraction substractFraction(InputOutputFraction frtInput) {
+        InputOutputFraction frt3 = new InputOutputFraction();
+
+        float rsNumerator;
+        float rsDenominator;
+        if (this.getDenominator() == frtInput.getDenominator()) {
+            rsNumerator = this.getNumerator() - frtInput.getNumerator();
+            rsDenominator = this.getDenominator();
+        } else {
+            rsNumerator = (this.getNumerator() * frtInput.getDenominator()) - (frtInput.getNumerator() * this.getDenominator());
+            rsDenominator = this.getDenominator() * frtInput.getDenominator();
+        }
+
+        frt3.setNumerator(rsNumerator);
+        frt3.setDenominator(rsDenominator);
+
+        return frt3.compact();
     }
 
 }

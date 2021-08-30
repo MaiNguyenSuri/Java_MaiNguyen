@@ -1,5 +1,7 @@
 package PhanSo;
 
+import jdk.internal.util.xml.impl.Input;
+
 import java.util.Scanner;
 
 public class Run {
@@ -8,11 +10,11 @@ public class Run {
         Scanner scanner = new Scanner(System.in);
 
         //PHÂN SỐ 1
-        System.out.println("Phân số 1: ");
-        System.out.println("Nhập tử số: ");
+        System.out.println("PHÂN SỐ 1");
+        System.out.print("Nhập tử số: ");
         float tuSo1 = scanner.nextFloat();
 
-        System.out.println("Nhập mẫu số: ");
+        System.out.print("Nhập mẫu số: ");
         float mauSo1 = scanner.nextFloat();
 
         InputOutputFraction frt1 = new InputOutputFraction(tuSo1, mauSo1);
@@ -37,11 +39,11 @@ public class Run {
 
         ///PHÂN SỐ 2
 
-        System.out.println("Phân số 2: ");
-        System.out.println("Nhập tử số: ");
+        System.out.println("PHÂN SỐ 2 ");
+        System.out.print("Nhập tử số: ");
         float tuSo2 = scanner.nextFloat();
 
-        System.out.println("Nhập mẫu số: ");
+        System.out.print("Nhập mẫu số: ");
         float mauSo2 = scanner.nextFloat();
 
         InputOutputFraction frt2 = new InputOutputFraction(tuSo2, mauSo2);
@@ -58,6 +60,7 @@ public class Run {
         float result1 = frt2.fraction();
         System.out.println("Kết quả rút gọn là: " + result1);*/
 
+        //gọi hàm rút gọn hai phân số
         CompactFraction cpt2 = new CompactFraction(frt2);
         cpt2.compact();
         InputOutputFraction frtCpt2 = cpt2.getFraction();
@@ -65,10 +68,16 @@ public class Run {
         frtCpt2.print();
         System.out.println();
 
+        // gọi hàm cộng hai phân số
         //InputOutputFraction sum = InputOutputFraction.sumFraction(frt1,frt2); // có static
-        InputOutputFraction sum = frt2.sum(frt1); //ko static
+        InputOutputFraction sum = frt1.sumFraction(frt2); //ko static
         System.out.print("SUM: ");
         sum.print();
+
+    // gọi hàm trừ hai phân số
+        InputOutputFraction subtract = frt1.substractFraction(frt2);
+        System.out.print("SUBTRACT: ");
+        subtract.print();
 
 
     }
