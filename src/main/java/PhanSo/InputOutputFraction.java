@@ -94,5 +94,29 @@ public class InputOutputFraction {
 
         return frt3.compact();
     }
+// nhân hai phân số
+    public InputOutputFraction multiplyFraction(InputOutputFraction frtInput) {
+        InputOutputFraction frt3 = new InputOutputFraction();
 
+        float rsNumerator;
+        float rsDenominator;
+
+            rsNumerator = this.getNumerator() * frtInput.getNumerator();
+            rsDenominator = this.getDenominator() * frtInput.getDenominator();
+
+        frt3.setNumerator(rsNumerator);
+        frt3.setDenominator(rsDenominator);
+
+        return frt3.compact();
+    }
+    // chia hai phân số
+    public InputOutputFraction divideFraction(InputOutputFraction frtInput) {
+        InputOutputFraction frt3 = new InputOutputFraction();
+
+        InputOutputFraction frtInputRevert = new InputOutputFraction(frtInput.getDenominator(),frtInput.getNumerator());
+
+        frt3 = multiplyFraction(frtInputRevert);
+
+        return frt3;
+    }
 }

@@ -71,15 +71,23 @@ public class Run {
         // gọi hàm cộng hai phân số
         //InputOutputFraction sum = InputOutputFraction.sumFraction(frt1,frt2); // có static
         InputOutputFraction sum = frt1.sumFraction(frt2); //ko static
-        System.out.print("SUM: ");
+        System.out.print("Tởmg hai phân số: ");
         sum.print();
 
-    // gọi hàm trừ hai phân số
+        // gọi hàm trừ hai phân số
         InputOutputFraction subtract = frt1.substractFraction(frt2);
-        System.out.print("SUBTRACT: ");
+        System.out.print("Trừ hai phân số: ");
         subtract.print();
 
+        // nhân hai phân số
+        InputOutputFraction multiply = frt1.multiplyFraction(frt2);
+        System.out.println("Nhân hai phân số: ");
+        multiply.print();
 
+        //chia hai phân số
+        InputOutputFraction divide = frt1.divideFraction(frt2);
+        System.out.println("Chia hai phân số: ");
+        divide.print();
     }
 
 
